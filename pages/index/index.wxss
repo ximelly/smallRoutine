@@ -1,0 +1,37 @@
+/**index.wxss**/
+.container {
+  padding:10rpx 0;
+} 
+
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.usermotto {
+  margin-top:50px;
+}
+.weather {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+.city,.condition,.temp {
+  width:100%;
+  margin-top: 10px;
+}
+.departLine{padding:30px 0 5px;}
+progress{margin:10px 0;}

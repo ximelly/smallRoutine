@@ -1,0 +1,42 @@
+<!--index.wxml-->
+<view class="departLine">进度条：</view>
+<progress percent="80" color="red" active></progress>
+<progress percent="50" show-info stroke-width="10"></progress>
+
+<view class="container">
+  <view  bindtap="bindViewTap" class="userinfo">
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+</view>
+
+<view class="departLine">事件绑定：</view>
+<view wx:if="{{show}}" class="flex-wrp" style="flex-direction:row">
+  <text class="flex-item">{{weather.location.name}}\n{{weather.now.text}}{{weather.now.temperature}}℃</text>
+</view>
+<button bindtap="hidden">hide weather</button>
+
+<view class="departLine">数据绑定：</view>
+<view wx:for="{{colors}}" wx:for-item="liu">
+  <view style="color:{{liu.color}};background:{{liu.color=='red'?'#000':'#ccc'}}">{{index+1}} {{liu.value}}</view>
+</view>
+
+<view class="departLine">模板：</view>
+<template name="ximelly"><view id="name-{{id}}" hidden="{{hidden}}">{{name}}&&{{age}}</view></template>
+<template is="ximelly" data="{{...aaa}}"></template>
+<template is="ximelly" data="{{...bbb}}"></template>
+
+<view class="departLine">swiper:</view>
+<swiper>
+  <swiper-item wx:for="{{images}}">
+    <image src="{{'http://wx2.biostime.us/swisse-wmall/center/myAccount/images/'+item+'.png'}}" />
+  </swiper-item>
+</swiper>
+
+<view class="departLine">scroll-view:</view>
+<scroll-view scroll-y="true" style="height:200px;" scroll-into-view="haha">
+  <view>1</view><view>1</view><view>1</view><view>1</view><view>1</view><view>1</view><view>1</view><view>1</view><view id="haha">3</view><view>1</view><view>1</view><view>1</view><view>1</view><view>1</view><view>1</view><view>1</view><view>1</view><view>1</view><view>1</view><view>1</view><view>1</view><view>1</view><view>1</view><view>1</view><view>1</view><view>1</view><view>1</view><view>1</view><view>1</view><view>1</view><view>1</view><view>1</view><view>1</view><view>1</view><view>1</view><view>1</view><view>1</view><view>1</view><view>1</view><view>1</view><view>1</view><view>1</view><view>1</view><view>1</view><view>1</view><view>1</view><view>1</view><view>1</view><view>1</view><view>1</view>
+</scroll-view>

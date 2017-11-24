@@ -1,0 +1,28 @@
+{
+  "pages":[
+    "pages/demo/demo",
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "red",
+    "navigationBarTitleText": "title",
+    "navigationBarTextStyle":"#fff",
+    "backgroundColor":"#000"
+  },
+  "tabBar": {
+    "selectedColor":"#73d0f4", 
+    "list": [{
+      "pagePath": "pages/index/index",
+      "iconPath": "assets/images/home_n.png",
+      "selectedIconPath": "assets/images/home.png",
+      "text": "首页"
+    }, {
+      "pagePath": "pages/logs/logs",
+      "iconPath": "assets/images/box_n.png",
+      "selectedIconPath": "assets/images/box.png",
+      "text": "启动日志"
+    }]
+  }
+}

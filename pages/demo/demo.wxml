@@ -1,0 +1,88 @@
+<!--demo.wxml-->
+<action-sheet hidden="{{actionHidden}}" bindchange="changeTab">
+	<block wx:for="{{actionsheets}}">
+		<action-sheet-item bindtap="choosesheet" data-name="{{item}}">{{item}}</action-sheet-item>
+	</block>
+	<action-sheet-cancel>取消</action-sheet-cancel>
+</action-sheet>
+
+<modal hidden="{{modalHidden}}" title="标题" confirm-text="confirm" cancel-text="cancel" bindconfirm="confirmmodal" bindcancel="cancelmodal">你确定是这样的吗？</modal>
+<loading hidden="{{loadHidden}}">加载中，请稍后。。。</loading>
+<toast hidden="{{toastHidden}}" duration="3000" bindchange="toasttapchange">确定</toast>
+
+<button bindtap="actionTap">点击显示/隐藏菜单</button>
+<button bindtap="modalTap">点击显示/隐藏模态框</button>
+<button bindtap="loadTap">点击显示/隐藏loading</button>
+<button bindtap="toastTap">点击显示/隐藏toast</button>
+<form bindsubmit="formSubmit" bindreset="formReset">
+  <view>
+    <label>姓名：
+    <input name="input" placeholder="连续的两个1会变成2" placeholder-style="padding-left:20px;font-size:10px;" bindinput="inputchange" bindchange="blurfocus"/>
+    </label>
+    <label>电话：
+    <input name="input2" value="188" type="number" disabled/>
+    </label>
+    <label>密码：
+    <input name="input3" value="188" password maxlength="10" auto-focus/>
+    </label>
+    <radio-group name="gender">
+	    <label>性别：
+	    	<radio value="man" checked/>男
+	    	<radio value="woman"/>女
+	    </label>
+    </radio-group>
+    <label>是否公开：
+    	<switch name="switch"/>
+    	<switch name="switch2" checked/>
+    </label>
+  </view>
+  <view>
+    <button formType="submit">确认</button>
+    <button formType="reset">重置</button>
+    <button bindtap="viewTap" size="default">click me</button>
+  </view>
+</form>
+
+<view>
+    <button size="mini" type="primary" hover-class="no">click me</button>
+    <button size="mini" type="default">click me</button>
+    <button size="mini" type="warn" disabled>click me</button>
+    <button size="mini" type="warn" plain  loading>click me</button>
+</view>
+
+<checkbox-group bindchange="checkboxChange">
+	<label>
+		<checkbox value="苹果" disabled/>apple
+	</label>
+	<label>
+		<checkbox value="橘子" checked/>orange
+	</label>
+	<label>
+		<checkbox value="梨子"/>pear
+	</label>
+	<label>
+		<checkbox value="香蕉"/>banana
+	</label>
+</checkbox-group>
+
+<view>
+	<text>选择时间</text>
+	<picker mode="time" start="12:10" end="24:10" value="{{time}}" bindchange="timechange"><view>{{time}}</view></picker>
+</view>
+<view>
+	<text>选择年月日</text>
+	<picker mode="date" start="12:10" end="24:10" value="{{date}}" bindchange="datechange"><view>{{date}}</view></picker>
+</view>
+<view>
+	<text>选择</text>
+	<picker mode="selector" range="{{array}}" value="{{index}}" bindchange="selectchange"><view>{{array[index]}}</view></picker>
+</view>
+
+<view>
+	<slider min="20" max="70" value="50" step="10" show-value></slider>
+	<slider min="20" max="70" value="50" step="10" show-value disabled></slider>
+</view>
+
+<view>
+	<textarea placeholder="请输入意见反馈" maxlength="20"></textarea>
+</view>
