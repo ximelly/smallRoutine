@@ -58,5 +58,70 @@ Page({
     var aa={};
     aa.show=!this.data.show;
     this.setData(aa);
+  },
+  requestTap:function(){
+    console.log("requestTap");
+    wx.request({
+      url:"http://appb.mama100.cn/sns/specialist/normal/rtrvAvailableExpert.do",
+      data:{
+        accessToken:"88d098cc79f0749823561bbeeeaf9646",
+        authData:1,
+        devid:"WXo3b9ss7VJ_nVlbcRz9ghp-rg7IxI",
+        openId:"o3b9ss7VJ_nVlbcRz9ghp-rg7IxI",
+        tsno:"1511508325392367165"
+      },
+      header:{"Content-Type":"application/json"},
+      success:function(res){
+        consol.log(res.data);
+      }
+    });
+  },
+  chooseImage:function(){
+    console.log("chooseImage");
+    var that=this;
+    wx.chooseImage({
+      success:function(res){
+          that.setData({
+            imageUrl:res.tempFilePaths[0]
+          });
+      }
+    });
+  },
+  previewImages:function(){
+    var that=this;
+    wx.previewImage({
+      current:that.data.imageUrl,
+      urls:[that.data.imageUrl]
+    });
+  },
+  getImageInfoTap:function(){
+    wx.getImageInfo({
+      src:this.data.imageUrl,
+      success:function(res){
+        console.log(res.width);
+        console.log(res.height);
+      }
+    });
+  },
+  startRecord:function(){
+    var that=this;
+    wx.startRecord({
+      success:function(res){
+        var aa=res.tempFilePath;
+        console.log("录音成功"+aa);
+        wx.playVoice({
+          filePath:aa,
+          complete:function(){
+            console.log("endVoice");
+          }
+        });
+      },
+      fail:function(res){
+        console.log("录音失败");
+      }
+    });
+  },
+  stopRecord:function(){
+    wx.stopRecord();
   }
 });
