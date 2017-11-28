@@ -33,7 +33,8 @@ Page({
       {color:"blue",value:"blue"},
       {color:"orange",value:"orange"}
     ],
-    images:["myorder","zhengjian","mycount"]
+    images:["myorder","zhengjian","mycount"],
+    vedioUrl:''
   },
   //事件处理函数
   bindViewTap: function() {
@@ -123,5 +124,47 @@ Page({
   },
   stopRecord:function(){
     wx.stopRecord();
+  },
+  playBgAudio:function(){
+    wx.playBackgroundAudio({
+      dataUrl:"https://img.mama100.cn/mp3/site/mobile/specialist/201711/1509523841187.mp3",
+      title:"background Audio",
+      coverImg:"https://img.mama100.cn/course/expert/201707/201707201503499813.jpg"
+
+    });
+  },
+  pauseAudio:function(){
+    wx.pauseBackgroundAudio();
+  },
+  stopAudio:function(){
+    wx.stopBackgroundAudio();
+  },
+  openFile:function(){
+    wx.downloadFile({
+      url:"http://example.com/somefile.pdf",
+      success:function(res){
+        var filePath=res.tempFilePath;
+        wx.openDocument({
+          filePath:filePath,
+          success:function(){
+            console.log("文件打开成功");
+          }
+        });
+      }
+    });
+  },
+  chooseVedio:function(){
+    var that=this;
+    wx.chooseVideo({
+      sourceType:['album','camera'],
+      maxDuration:60,
+      carmera:['front','back'],
+      success:function(res){
+        console.log(res.tempFilePath);
+         that.setData({
+          vedioUrl:res.tempFilePath
+         });
+      }
+    });
   }
 });

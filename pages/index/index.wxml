@@ -9,8 +9,16 @@
 <button bindtap="stopRecord">stopRecord</button>
 
 
-<button bindtap="chooseImage">chooseImage</button>
-<button bindtap="chooseImage">chooseImage</button>
+<button bindtap="playBgAudio">playBgAudio</button>
+<button bindtap="pauseAudio">pauseAudio</button>
+<button bindtap="stopAudio">stopAudio</button>
+
+<button bindtap="openFile">openFile</button>
+
+<video src="{{vedioUrl}}"></video>
+<button bindtap="chooseVedio">chooseVedio</button>
+<button bindtap="pauseAudio">pauseAudio</button>
+<button bindtap="stopAudio">stopAudio</button>
 
 
 <view class="departLine">进度条：</view>
